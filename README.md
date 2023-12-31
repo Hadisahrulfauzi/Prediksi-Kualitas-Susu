@@ -63,7 +63,7 @@ from google.colab import files
 
 Lalu mengupload token kaggle agar nanti bisa mendownload sebuah dataset dari kaggle melalui google colab,
 ``` bash
-file.upload()
+files.upload()
 ```
 
 Setelah mengupload filenya, maka kita akan lanjut dengan membuat sebuah folder untuk menyimpan file kaggle.json yang sudah diupload tadi,
