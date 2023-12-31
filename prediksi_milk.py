@@ -2,7 +2,7 @@ import pickle
 import streamlit as st
 
 
-model = pickle.load(open("prediksi_susu.sav", "rb"))
+model = pickle.load(open("prediksi_milk.sav", "rb"))
 
 st.title('Prediksi Kualitas Susu')
 st.write("Lengkapi Data dibawah ini")
