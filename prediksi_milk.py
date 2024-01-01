@@ -1,13 +1,7 @@
 import pickle
 import streamlit as st
 
-model_file_path = "prediksi_milk.sav"
-
-# Check if the model file exists
-try:
-    model = pickle.load(open(model_file_path, "rb"))
-except FileNotFoundError:
-    st.error(f"Model file '{model_file_path}' not found. Please check the file path.")
+model = pickle.load(open("prediksi_milk.sav", "rb"))
 
 st.title('Prediksi Kualitas Susu')
 st.write("Lengkapi Data dibawah ini")
@@ -23,11 +17,11 @@ odor_mapping = {"Baik": True, "Buruk": False}
 odor = st.selectbox("Kualitas Bau susu", list(odor_mapping.keys()))
 odor_value = odor_mapping[odor]
 
-fat_mapping = {"Rendah": False, "Tinggi": True}
+fat_mapping = {"Tinggi": True, "Rendah": False}
 fat = st.selectbox("Tingkat Kadar Lemak Susu", list(fat_mapping.keys()))
 fat_value = fat_mapping[fat]
 
-turbidity_mapping = {"Rendah": False, "Tinggi": True}
+turbidity_mapping = {"Tinggi": True, "Rendah": False}
 turbidity = st.selectbox("Kekeruhan Susu", list(turbidity_mapping.keys()))
 turbidity_value = turbidity_mapping[turbidity]
 
@@ -35,10 +29,19 @@ colour = st.number_input('Input Warna Susu')
 
 
 if st.button("Prediksi"):
-    X = [[pH, temperature, taste_value, odor_value, fat_value, turbidity_value, colour]]
+    X = [
+           [pH,
+            Temprature,
+            Taste,
+            Odor,
+            Fat,
+            Turbidity,
+            Colour,
+            ]
+         ]
     hasil = model.predict(X)
     
-    print("Hasil:", hasil)  # Add this line to inspect the content of hasil variable
+    print("Hasil:", hasil) 
     
     if hasil[0] == 'low':
         st.write("Kualitas susu buruk")
