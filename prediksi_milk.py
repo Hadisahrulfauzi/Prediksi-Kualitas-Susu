@@ -59,12 +59,12 @@ if st.button("Prediksi"):
     X = [[pH, Temprature, Taste, Odor, Fat, Turbidity, Colour]]
     hasil = model.predict(X)
    
-    if hasil[0] == False:
+    if hasil[False] == False:
         st.write("Kualitas susu buruk")
-        print(hasil[0])
+        print(hasil[False])
     elif hasil[0] == True:
         st.write("Kualitas susu sedang")
-        print(hasil[0])
+        print(hasil[False])
     else :
         st.write("Kualitas susu baik")
-        print(hasil[0])
+        print(hasil[False])
