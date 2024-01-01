@@ -69,10 +69,10 @@ if st.button("Prediksi"):
         ]
     ]
     hasil = model.predict(X)
-    if hasil[False] == False:
+    if hasil[False] == low:
         st.write("Kualitas susu buruk")
         print(hasil[False])
-    elif hasil[False] == True:
+    elif hasil[False] == medium:
         st.write("Kualitas susu sedang")
         print(hasil[False])
     else :
