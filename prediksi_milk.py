@@ -7,7 +7,7 @@ st.title('Prediksi Kualitas Susu')
 st.write("Lengkapi Data dibawah ini")
 
 pH = st.number_input('Input Nilai pH Susu')
-temperature = st.number_input('Input Suhu Susu')
+temprature = st.number_input('Input Suhu Susu')
 
 taste_mapping = {"Baik": True, "Buruk": False}
 taste = st.selectbox("Kualitas Rasa Susu", list(taste_mapping.keys()))
