@@ -33,11 +33,14 @@ turbidity_value = turbidity_mapping[turbidity]
 
 colour = st.number_input('Input Warna Susu')
 
+
 if st.button("Prediksi"):
     X = [[pH, temperature, taste_value, odor_value, fat_value, turbidity_value, colour]]
     hasil = model.predict(X)
     
-   if hasil[0] == 'low':
+    print("Hasil:", hasil)  # Add this line to inspect the content of hasil variable
+    
+    if hasil[0] == 'low':
         st.write("Kualitas susu buruk")
     elif hasil[0] == 'medium':
         st.write("Kualitas susu sedang")
