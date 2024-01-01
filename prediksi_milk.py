@@ -26,13 +26,16 @@ Colour = st.number_input('Input Warna Susu')
 if st.button("Prediksi"):
     X = [[pH, Temperature, Taste, Odor, Fat, Turbidity, Colour]]
     hasil = model.predict(X)
+    low = 0  # Define the value for "Kualitas susu buruk"
+    medium = 1  # Define the value for "Kualitas susu sedang"
+    high = 2 # Define the value for "Kualitas susu baik"
 
-    if hasil[0] == low:
+    if hasil > low:
         st.write("Kualitas susu buruk")
         print(hasil[0])
-    elif hasil[0] == medium:
+    elif hasil == low:
         st.write("Kualitas susu sedang")
-        print(hasil[0])
+        print(hasil)
     else:
         st.write("Kualitas susu baik")
-        print(hasil[0])
+        print(hasil)
