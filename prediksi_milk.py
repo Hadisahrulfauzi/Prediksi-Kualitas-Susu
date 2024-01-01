@@ -63,7 +63,7 @@ if st.button("Prediksi"):
             Turbidity,
             Colour,]]
     
-  hasil = model.predict(X)
+    hasil = model.predict(X)
     
     print(hasil) 
     
@@ -73,5 +73,3 @@ if st.button("Prediksi"):
         st.write("Kualitas susu baik")
     else :
         st.write("Kualitas susu sedang")
-
-
