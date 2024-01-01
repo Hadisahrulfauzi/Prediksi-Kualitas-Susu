@@ -59,9 +59,6 @@ if st.button("Prediksi"):
     X = [[pH, Temprature, Taste, Odor, Fat, Turbidity, Colour]]
     hasil = model.predict(X)
    
-print("Hasil:", hasil)  # Add this line to inspect the content of hasil variable
-    
-    hasil = model.predict(X)
     if hasil[0] == False:
         st.write("Kualitas susu buruk")
         print(hasil[0])
