@@ -67,4 +67,4 @@ if st.button("Prediksi"):
         print(hasil[0])
     else :
         st.write("Kualitas susu sedang")
-        print(hasil[0])
+        print(hasil[1])
