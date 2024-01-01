@@ -30,7 +30,7 @@ Berikut adalah beberapa tujuan dari aplikasi prediksi kualitas susu:
 ### Solution statements
 - Melakukan analisis data yang mendalam untuk mengidentifikasi pola dan tren yang berkaitan dengan kualitas susu. Ini dapat mencakup analisis statistik dan penggunaan teknik seperti data mining.
 - Aplikasi prediksi kualitas susu akan memanfaatkan data susu yang relevan, termasuk faktor-faktor yang mempengaruhi kualitas susu, seperti kualitas bahan baku, proses pengolahan, dan penyimpanan. Data ini akan digunakan untuk melatih model machine learning yang dapat memprediksi kualitas susu.
-- Model yang dihasilkan dari datasets itu menggunakan metode Random Forest Classifier.
+- Model yang dihasilkan dari datasets itu menggunakan model K-Nearest Neighbor (KNN).
 
 ## Data Understanding
 Dataset ini dikumpulkan secara manual dari observasi. Hal ini membantu kami membuat model pembelajaran mesin untuk memprediksi kualitas susu.
@@ -59,13 +59,8 @@ Untuk data collection ini, saya mendapatkan dataset dari website kaggle dengan n
 Karena kita menggunakan google colab untuk mengerjakannya maka kita akan import files,
 ``` bash
 from google.colab import files
-```
-
-Lalu mengupload token kaggle agar nanti bisa mendownload sebuah dataset dari kaggle melalui google colab,
-``` bash
 files.upload()
 ```
-
 Setelah mengupload filenya, maka kita akan lanjut dengan membuat sebuah folder untuk menyimpan file kaggle.json yang sudah diupload tadi,
 ``` bash
 !mkdir -p ~/.kaggle
