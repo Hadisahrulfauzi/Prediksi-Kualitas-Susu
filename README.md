@@ -101,6 +101,14 @@ Kemudian saya akan melihat tipe data yang ada pada masing-masing kolom pada data
 ``` bash
 data.info()
 ```
+Disini saya merubah typedata 'pH' yang awalnya float menjadi integer
+``` bash
+data.pH=data.pH.astype("int64")
+```
+kita lihat typedata yang sudah dirubah
+``` bash
+data.info()
+```
 ## EDA
 Buat Korelasi heatmap
 ``` bash
