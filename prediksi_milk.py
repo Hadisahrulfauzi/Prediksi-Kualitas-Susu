@@ -1,12 +1,10 @@
 import pickle
 import streamlit as st
 
-
 model = pickle.load(open("prediksi_milk.sav", "rb"))
 
 st.title('Prediksi Kualitas Susu')
 st.write("Lengkapi Data dibawah ini")
-
 
 pH = st.number_input('Input Nilai pH Susu')
 Temprature = st.number_input('Input Suhu Susu')
@@ -18,9 +16,9 @@ Taste = st.selectbox(
     ],
 )
 if Taste == "Baik":
-    Taste = 1
+    Taste = True
 else:
-    Taste = 0
+    Taste = False
 Odor = st.selectbox(
     "Kualitas Bau susu",
     [
@@ -29,9 +27,9 @@ Odor = st.selectbox(
     ],
 )
 if Odor == "Baik":
-    Odor = 1
+    Odor = True
 else:
-    Odor = 0
+    Odor = False
 Fat = st.selectbox(
     "Tingkat Kadar Lemak Susu",
     [
@@ -40,9 +38,9 @@ Fat = st.selectbox(
     ],
 )
 if Fat == "Rendah":
-    Fat = 0
+    Fat = False
 else:
-    Fat = 1
+    Fat = True
 Turbidity = st.selectbox(
     "Kekeruhan Susu",
     [
@@ -51,30 +49,27 @@ Turbidity = st.selectbox(
     ],
 )
 if Turbidity == "Rendah":
-    Turbidity = 0
+    Turbidity = False
 else:
-    Turbidity = 1
+    Turbidity = True
 Colour = st.number_input('Input Warna Susu')
 
 if st.button("Prediksi"):
-    X = [
-        [
-            pH,
+    X = [[  pH,
             Temprature,
             Taste,
             Odor,
             Fat,
             Turbidity,
-            Colour,
-        ]
-    ]
+            Colour,]]
+    
     hasil = model.predict(X)
-    if hasil[0] == 0:
+    
+    print(hasil) 
+    
+    if hasil == 'low':
         st.write("Kualitas susu buruk")
-        print(hasil[0])
-    elif hasil[0] == 1:
-        st.write("Kualitas susu sedang")
-        print(hasil[0])
-    else :
+    elif hasil == 'high':
         st.write("Kualitas susu baik")
-        print(hasil[0])
+    else :
+        st.write("Kualitas susu sedang")
