@@ -54,8 +54,7 @@ else:
     Turbidity = True
 Colour = st.number_input('Input Warna Susu')
 
-
-if st.button("Prediksi"):
+ st.button("Prediksi"):
     X = [[pH, Temprature, Taste, Odor, Fat, Turbidity, Colour]]
     hasil = model.predict(X)
    
