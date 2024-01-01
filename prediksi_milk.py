@@ -65,6 +65,9 @@ if st.button("Prediksi"):
     elif hasil[0] == 'high':
         st.write("Kualitas susu sedang")
         print(hasil[0])
+    elif hasil[0] == 'medium':
+        st.write("Kualitas susu sedang")
+        print(hasil[0])
     else :
         st.write("Kualitas susu baik")
         print(hasil[0])
