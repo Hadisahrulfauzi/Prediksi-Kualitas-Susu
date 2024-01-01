@@ -64,14 +64,12 @@ if st.button("Prediksi"):
             Colour,]]
     
    hasil = model.predict(X)
-   print("Hasil:", hasil) 
-    if hasil == 'low':
-        st.write("Kualitas susu buruk")
-        print(hasil)
-    elif hasil == 'medium':
-        st.write("Kualitas susu sedang")
-        print(hasil)
-    else :
-        st.write("Kualitas susu baik")
-        print(hasil)
 
+      print("Hasil:", hasil)  # Add this line to inspect the content of hasil variable
+    
+    if hasil[0] == 'low':
+        st.write("Kualitas susu buruk")
+    elif hasil[0] == 'medium':
+        st.write("Kualitas susu sedang")
+    elif hasil[0] == 'high':
+        st.write("Kualitas susu baik")
