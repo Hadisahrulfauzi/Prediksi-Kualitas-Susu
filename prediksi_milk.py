@@ -40,3 +40,4 @@ if st.button("Prediksi"):
         st.write("Kualitas susu sedang")
     else :
         st.write("Kualitas susu baik")
+        print(hasil[0])
