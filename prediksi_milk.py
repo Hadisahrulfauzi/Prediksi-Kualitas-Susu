@@ -1,6 +1,7 @@
 import pickle
 import streamlit as st
 
+# Load the trained model
 model = pickle.load(open("prediksi_milk.sav", "rb"))
 
 st.title('Prediksi Kualitas Susu')
@@ -28,14 +29,14 @@ if st.button("Prediksi"):
     hasil = model.predict(X)
     low = 0  # Define the value for "Kualitas susu buruk"
     medium = 1  # Define the value for "Kualitas susu sedang"
-    high = 2 # Define the value for "Kualitas susu baik"
+    high = 2  # Define the value for "Kualitas susu baik"
 
-    if hasil > low:
+    if hasil[0] > low:
+        st.write("Kualitas susu baik")
+        print(hasil[0])
+    elif hasil[0] == low:
+        st.write("Kualitas susu sedang")
+        print(hasil[0])
+    else:
         st.write("Kualitas susu buruk")
         print(hasil[0])
-    elif hasil == low:
-        st.write("Kualitas susu sedang")
-        print(hasil)
-    else:
-        st.write("Kualitas susu baik")
-        print(hasil)
