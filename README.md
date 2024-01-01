@@ -125,7 +125,7 @@ sns.countplot(x=data['Odor'],hue=data['Grade'], palette = "tab10")
 ```
 ![](./assets/counplot2.png) <br>
 
-Kita lihat jumlah data kualitas susu berdasarkan Odor nya
+Kita visualisasikan data 'pH' dan 'colour' menggunakan scatterplot
 ``` bash
 sns.scatterplot(data=data, x='pH', y='Colour', hue='Grade')
 ```
@@ -137,7 +137,7 @@ sns.pairplot(data,hue='Grade');
 ```
 ![](./assets/pairplot.png) <br>
 
-Kita lihat jumlah data kualitas susu berdasarkan Colour nya
+Kita visualisasikan data 'Grade' menggunakan diagram lingkaran atau pie untuk melihat persentase datanya,
 ``` bash
 plt.figure(figsize=(30,10))
 plt.pie(data['Grade'].value_counts(), labels=data['Grade'].value_counts().index,
@@ -158,24 +158,21 @@ x = data[features]
 y = data['Grade']
 x.shape, y.shape
 ``` 
-Selanjutnya kita akan menentukan berapa persen dari datasets yang akan digunakan untuk test dan untuk train, disini kita gunakan 80% untuk test dan sisanya untuk training alias 20%,
+Selanjutnya kita akan menentukan berapa persen dari datasets yang akan digunakan untuk test dan untuk train
 ``` bash
 x_train, x_test, y_train, y_test = train_test_split(x,y,random_state=90)
 y_test.shape
-
-X=data.drop(['Grade'],axis=1)
-y=data['Grade']
 ```
 ## Modeling
 
-membuat, melatih, dan mengukur akurasi model menggunakan Random Forest Classifier (RFC) dalam scikit-learn,
+membuat, melatih, dan mengukur akurasi model menggunakan  K-Nearest Neighbor (KNN)
 ``` bash
 model=KNeighborsClassifier(n_neighbors=3)
 model.fit(x_train,y_train)
 y_pred1=model.predict(x_test)
 ```
 
-Mengukur akurasi model Random Forest Classifier (RFC) pada seluruh dataset,
+Mengukur akurasi model  K-Nearest Neighbor (KNN) pada seluruh dataset,
 ``` bash
 score = model.score(x_test, y_test)
 print('akurasi model knn = ', score)
