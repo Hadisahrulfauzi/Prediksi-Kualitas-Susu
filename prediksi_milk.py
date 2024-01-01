@@ -63,12 +63,15 @@ if st.button("Prediksi"):
             Turbidity,
             Colour,]]
     
-    hasil = model.predict(X)
+  hasil = model.predict(X)
     
-    if hasil[0] == [0]:
+    print(hasil) 
+    
+    if hasil == 'low':
         st.write("Kualitas susu buruk")
-        print(hasil[0])
-    elif hasil[0] == 1:
+    elif hasil == 'high':
+        st.write("Kualitas susu baik")
+    else :
         st.write("Kualitas susu sedang")
-        print(hasil[0])
+
 
