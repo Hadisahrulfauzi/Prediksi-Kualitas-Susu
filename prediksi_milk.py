@@ -58,9 +58,7 @@ Colour = st.number_input('Input Warna Susu')
 if st.button("Prediksi"):
     X = [[pH, Temprature, Taste, Odor, Fat, Turbidity, Colour]]
     hasil = model.predict(X)
-    
-    print("Hasil:", hasil) 
-    
+   
 print("Hasil:", hasil)  # Add this line to inspect the content of hasil variable
     
     hasil = model.predict(X)
