@@ -54,8 +54,18 @@ else:
     Turbidity = True
 Colour = st.number_input('Input Warna Susu')
 
- st.button("Prediksi"):
-    X = [[pH, Temprature, Taste, Odor, Fat, Turbidity, Colour]]
+if st.button("Prediksi"):
+    X = [[pH, temprature, taste_value, odor_value, fat_value, turbidity_value, colour]]
     hasil = model.predict(X)
-   
-print('Prediksi kualitas susu :', hasil)
+    
+    print("Hasil:", hasil) 
+    
+    if 'low' in hasil:
+        st.write("Kualitas susu buruk")
+    elif 'medium' in hasil:
+        st.write("Kualitas susu baik")     
+    elif 'high' in hasil:
+        st.write("Kualitas susu sedang")
+    else:
+        st.write("Tidak dapat memprediksi kualitas susu.")
+
