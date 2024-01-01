@@ -65,11 +65,11 @@ if st.button("Prediksi"):
     
     hasil = model.predict(X)
     
-    print(hasil) 
+    print(hasil[0]) 
     
-    if hasil == '0':
+    if hasil[0] == '0':
         st.write("Kualitas susu buruk")
-    elif hasil == '1':
+    elif hasil[0] == '1':
         st.write("Kualitas susu baik")
     else :
         st.write("Kualitas susu sedang")
