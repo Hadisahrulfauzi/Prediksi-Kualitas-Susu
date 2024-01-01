@@ -218,7 +218,7 @@ ax.xaxis.set_ticklabels(['low','medium','high']); ax.yaxis.set_ticklabels
 
 
 ## Deployment
-
+Berikut adalah aplikasi prediksi kualitas susu yang sudah saya buat menggunakan Streamlit
 [My Milk Quality Prediction App](https://kualitas-susu-prediksi.streamlit.app/).
 
 ![](./assets/app.png)
