@@ -7,7 +7,7 @@ st.title('Prediksi Kualitas Susu')
 st.write("Lengkapi Data dibawah ini")
 
 pH = st.number_input('Input Nilai pH Susu')
-temperature = st.number_input('Input Suhu Susu')
+temprature = st.number_input('Input Suhu Susu')
 
 taste_mapping = {"Baik": True, "Buruk": False}
 taste = st.selectbox("Kualitas Rasa Susu", list(taste_mapping.keys()))
@@ -29,7 +29,7 @@ colour = st.number_input('Input Warna Susu')
 
 
 if st.button("Prediksi"):
-    X = [[pH, temperature, taste_value, odor_value, fat_value, turbidity_value, colour]]
+    X = [[pH, temprature, taste_value, odor_value, fat_value, turbidity_value, colour]]
     hasil = model.predict(X)
     hasil = model.predict(X)
     
