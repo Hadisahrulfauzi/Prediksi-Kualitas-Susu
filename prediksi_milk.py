@@ -56,7 +56,7 @@ Colour = st.number_input('Input Warna Susu')
 
 
 if st.button("Prediksi"):
-    X = [[pH, temprature, taste, odor, fat, turbidity, colour]]
+    X = [[pH, Temprature, Taste, Odor, Fat, Turbidity, Colour]]
     hasil = model.predict(X)
     
     print("Hasil:", hasil) 
