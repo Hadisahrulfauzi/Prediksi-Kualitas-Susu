@@ -7,34 +7,61 @@ st.title('Prediksi Kualitas Susu')
 st.write("Lengkapi Data dibawah ini")
 
 pH = st.number_input('Input Nilai pH Susu')
-temprature = st.number_input('Input Suhu Susu')
-
-taste_mapping = {"Baik": True, "Buruk": False}
-taste = st.selectbox("Kualitas Rasa Susu", list(taste_mapping.keys()))
-taste_value = taste_mapping[taste]
-
-odor_mapping = {"Baik": True, "Buruk": False}
-odor = st.selectbox("Kualitas Bau susu", list(odor_mapping.keys()))
-odor_value = odor_mapping[odor]
-
-fat_mapping = {"Tinggi": True, "Rendah": False}
-fat = st.selectbox("Tingkat Kadar Lemak Susu", list(fat_mapping.keys()))
-fat_value = fat_mapping[fat]
-
-turbidity_mapping = {"Tinggi": True, "Rendah": False}
-turbidity = st.selectbox("Kekeruhan Susu", list(turbidity_mapping.keys()))
-turbidity_value = turbidity_mapping[turbidity]
-
-colour = st.number_input('Input Warna Susu')
+Temprature = st.number_input('Input Suhu Susu')
+Taste = st.selectbox(
+    "Kualitas Rasa Susu",
+    [
+        "Baik",
+        "Buruk",
+    ],
+)
+if Taste == "Baik":
+    Taste = True
+else:
+    Taste = False
+Odor = st.selectbox(
+    "Kualitas Bau susu",
+    [
+        "Baik",
+        "Buruk",
+    ],
+)
+if Odor == "Baik":
+    Odor = True
+else:
+    Odor = False
+Fat = st.selectbox(
+    "Tingkat Kadar Lemak Susu",
+    [
+        "Rendah",
+        "Tinggi",
+    ],
+)
+if Fat == "Rendah":
+    Fat = False
+else:
+    Fat = True
+Turbidity = st.selectbox(
+    "Kekeruhan Susu",
+    [
+        "Rendah",
+        "Tinggi",
+    ],
+)
+if Turbidity == "Rendah":
+    Turbidity = False
+else:
+    Turbidity = True
+Colour = st.number_input('Input Warna Susu')
 
 
 if st.button("Prediksi"):
-    X = [[pH, temprature, taste_value, odor_value, fat_value, turbidity_value, colour]]
+    X = [[pH, temprature, taste, odor, fat, turbidity, colour]]
     hasil = model.predict(X)
     
     print("Hasil:", hasil) 
     
-    if 'high' in hasil:
+    if 'medium' in hasil:
         st.write("Kualitas susu sedang")
     elif 'low' in hasil:
         st.write("Kualitas susu buruk")     
