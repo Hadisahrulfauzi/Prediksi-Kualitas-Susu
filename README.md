@@ -1,5 +1,3 @@
-# Laporan Proyek Machine Learning
-
 ### Nama : Hadi Sahrul Fauzi
 ### Nim : 211351060
 ### Kelas : Malam A
